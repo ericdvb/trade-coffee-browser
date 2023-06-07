@@ -1,0 +1,52 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Coffee {
+  id                    String    @id @default(uuid())
+  fetchedAtTime         String?
+  roaster               Roaster   @relation(fields: [roasterId], references: [id])
+  roasterId             String
+  detailPageURI         String
+  coffeeName            String
+  coffeeImageURI        String
+  coffeeWeight          String
+  flavors               String[]
+  tradeDescription      String
+  shortDescription      String?
+  roasterDescription    String?
+  process               String?
+  subRegion             String?
+  elevationHi           Int?
+  elevationLow          Int?
+  starRating            Int?
+  bodyLevel             Int?
+  acidityLevel          Int?
+  roastLevel            Int?
+  queueable             Boolean
+  varietal              String[]
+  tasteGroup            String?
+  selectEligible        Boolean
+  premiumEligible       Boolean
+  classicsEligible      Boolean
+  price                 Json
+
+  @@unique(fields: [coffeeName, roasterId], name: "coffeeNameRoasterKey")
+}
+
+model Roaster {
+  id              String @id @default(uuid())
+  name            String @unique
+  imageURI        String?
+  location        String?
+  coffees         Coffee[]
+  roasterURI      String
+}
