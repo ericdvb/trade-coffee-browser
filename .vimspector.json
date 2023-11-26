@@ -1,0 +1,48 @@
+{
+  "configurations": {
+    "Next.js: debug server-side": {
+      "adapter": "js-debug",
+      "configuration": {
+        "name": "Next.js server side launch via yarn",
+        "type": "node",
+        "request": "launch",
+        "cwd": "${workspaceFolder}",
+        "runtimeExecutable": "yarn",
+        "runtimeArgs": ["dev"]
+      }
+    },
+    "Next.js: debug client-side": {
+      "adapter": "js-debug",
+      "configuration": {
+        "name": "Next.js: debug client-side",
+        "type": "chrome",
+        "request": "launch",
+        "url": "http://localhost:3000"
+      }
+    },
+    "Next.js: debug full stack": {
+      "adapter": "js-debug",
+      "configuration": {
+        "name": "Next.js: debug full stack",
+        "type": "node-terminal",
+        "request": "launch",
+        "command": "yarn dev",
+        "serverReadyAction": {
+          "pattern": "started server on .+, url: (https?://.+)",
+          "uriFormat": "%s",
+          "action": "debugWithChrome"
+        }
+      }
+    },
+    "Next.js: attach server": {
+      "adapter": "js-debug",
+      "configuration": {
+        "name": "Next.js: attach server",
+        "type": "pwa-node",
+        "request": "attach",
+        "port": 9229,
+        "localRoot": "${workspaceRoot}"
+      }
+    }
+  }
+}

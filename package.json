@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "NODE_OPTIONS='--inspect' next dev",
+    "dev": "next dev",
+    "debug": "NODE_OPTIONS='--inspect=9229' next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -11,21 +12,29 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@headlessui/react": "^1.7.17",
+    "@heroicons/react": "^2.0.18",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.13.4",
+    "@mui/x-date-pickers": "^6.17.0",
     "@prisma/client": "^4.14.1",
     "@types/node": "20.2.5",
     "@types/react": "18.2.7",
     "@types/react-dom": "18.2.4",
+    "autoprefixer": "^10.4.16",
     "eslint": "8.41.0",
-    "eslint-config-next": "13.4.4",
-    "material-react-table": "^1.12.0",
-    "next": "13.2.4",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "eslint-config-next": "^14.0.1",
+    "html-prettify": "^1.0.7",
+    "material-react-table": "^2.0.1",
+    "next": "^14.0.1",
+    "postcss": "^8.4.31",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.3.5",
     "typescript": "5.0.4"
   },
   "devDependencies": {
     "prisma": "4.14.1"
-  }
+  },
+  "peerDependencies": {}
 }

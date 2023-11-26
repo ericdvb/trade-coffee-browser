@@ -1,3 +1,10 @@
+function getProperties(coffee, propertyKeys: Array<string> | string) {
+  if (Array.isArray(propertyKeys)) {
+    return propertyKeys.map(key => coffee.properties.find(property => property.key === key)?.value)
+  }
+  return coffee.properties.find(property => property.key === propertyKeys)?.value
+}
+
 function coffeeToDB(coffee) {
   return {
     fetchedAtTime: coffee.fetchedAtTime,
@@ -6,20 +13,20 @@ function coffeeToDB(coffee) {
     coffeeName: coffee.name,
     coffeeImageURI: coffee.default_image.url,
     coffeeWeight: coffee.bean_weight?.value,
-    flavors: coffee.properties.filter(property => property.key.includes("flavor_wheel")).map(property => property.value) || [],
+    flavors: getProperties(coffee, ["flavor_wheel_primary", "flavor_wheel_secondary", "flavor_wheel_tertiary"]) || [],
     tradeDescription: coffee.description,
-    shortDescription: coffee.properties.find(property => property.key === 'coffee_description_short')?.value,
-    process: coffee.properties.find(property => property.key === 'coffee_processing_method')?.value,
-    subRegion: coffee.properties.find(property => property.key === 'coffee_sub_region')?.value,
-    elevationHi: parseInt(coffee.properties.find(property => property.key === 'coffee_elevation_hi')?.value?.replace(/,/g, '')) || undefined,
-    elevationLow: parseInt(coffee.properties.find(property => property.key === 'coffee_elevation_lo')?.value?.replace(/,/g, '')) || undefined,
-    starRating: parseInt(coffee.properties.find(property => property.key === 'coffee_star_rating')?.value) || undefined,
-    bodyLevel: parseInt(coffee.properties.find(property => property.key === 'coffee_body_level')?.value) || undefined,
-    acidityLevel: parseInt(coffee.properties.find(property => property.key === 'coffee_acidity_level')?.value) || undefined,
-    roastLevel: parseInt(coffee.properties.find(property => property.key === 'roast_level_description')?.value) || undefined,
-    roasterDescription: coffee.properties.find(property => property.key === 'coffee_description_roaster')?.value,
+    shortDescription: getProperties(coffee, 'coffee_description_short'),
+    process: getProperties(coffee, 'coffee_processing_method'),
+    subRegion: getProperties(coffee, 'coffee_sub_region'),
+    elevationHi: parseInt(getProperties(coffee, 'coffee_elevation_hi')?.replace(/,/g, '')) || undefined,
+    elevationLow: parseInt(getProperties(coffee, 'coffee_elevation_lo')?.replace(/,/g, '')) || undefined,
+    starRating: parseInt(getProperties(coffee, 'coffee_star_rating')) || undefined,
+    bodyLevel: parseInt(getProperties(coffee, 'coffee_body_level')) || undefined,
+    acidityLevel: parseInt(getProperties(coffee,'coffee_acidity_level')) || undefined,
+    roastLevel: parseInt(getProperties(coffee, 'roast_level_description')) || undefined,
+    roasterDescription: getProperties(coffee, 'coffee_description_roaster'),
     queueable: coffee.queueable,
-    varietal: coffee.properties.find(property => property.key === 'coffee_plant_varietal')?.value?.split(',').map((varietal: string) => varietal.trim()) || [],
+    varietal: getProperties(coffee, 'coffee_plant_varietal')?.split(',').map((varietal: string) => varietal.trim()) || [],
     tasteGroup: JSON.stringify(coffee.taste_group),
     selectEligible: coffee.trade_select_eligible,
     premiumEligible: coffee.trade_select_premium_eligible,
@@ -38,9 +45,16 @@ function weightPricesToDB(variant) {
 }
 
 function roasterToDB(roaster) {
+  const roasterImageURI = roaster.default_image.url ||
+    roaster.content.logo_black?.file?.url ||
+    roaster.content.logoBlack?.file?.url ||
+    roaster.content.logo_white?.file?.url ||
+    roaster.content.logoWhite?.file?.url;
   return {
     name: roaster.name,
-    imageURI: roaster.default_image.url || `https://${roaster.content.logo_black?.file?.url}`,
+    imageURI: !roasterImageURI || roasterImageURI.match(/^https?:\/\//)?.length > 0
+      ? roasterImageURI
+      : `https://${roasterImageURI}`,
     location: roaster.content.city,
     roasterURI: `https://drinktrade.com${roaster.click_url}`
   };
