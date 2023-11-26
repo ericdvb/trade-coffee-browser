@@ -1,34 +1,85 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">
+  <br>
+  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.png" alt="Markdownify" width="200"></a>
+  <br>
+  Trade Coffee Browser
+  <br>
+</h1>
 
-## Getting Started
+<h4 align="center">A minimal Markdown Editor desktop app built on top of <a href="http://electron.atom.io" target="_blank">Electron</a>.</h4>
 
-First, run the development server:
+<p align="center">
+  <a href="https://codesandbox.io">
+    <img src="https://codesandbox.io/static/img/banner.png?v=2" height="300px">
+  </a>
+</p>
 
+&nbsp;
+An instantly ready, full-featured online IDE for web development on any device
+with a browser. Enabling you to start new projects quickly and prototype
+rapidly. With CodeSandbox, you can create web apps, experiment with code, test
+ideas, and share creations easily.
+
+An alternate interface for browsing [Trade Coffee](https://drinktrade.com)
+
+## Table of Contents
+
+
+<p align="center" class="badges">
+  <a href="https://badge.fury.io/js/electron-markdownify">
+  </a>
+  <a href="https://saythanks.io/to/bullredeyes@gmail.com">
+  </a>
+  <a href="https://www.paypal.me/AmitMerchant">
+  </a>
+</p>
+
+<p align="center">
+  <a href="#key-features">Key Features</a> •
+  <a href="#getting-started">Getting Started</a> •
+  <a href="#download">Download</a> •
+  <a href="#credits">Credits</a> •
+  <a href="#related">Related</a> •
+  <a href="#license">License</a>
+</p>
+
+![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.gif)
+
+## Key Features
+
+* Efficient Table View
+  - View all products available from Trade in a single table based view
+* Filter by any product attribute
+* Search across all products
+
+## How To Use
+
+To run locally:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+$ git clone git@github.com:ericdvb/trade-coffee-browser
+```
+```bash
+$ yarn install
+```
+```bash
+$ yarn start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Built With
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This package is built with the following technologies:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- [Next.js](http://nextjs.org/)
+- [Node.js](https://nodejs.org/)
+- [Material React Table](https://www.material-react-table.com/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [HeadlessUI](http://codemirror.net/](https://headlessui.com/)
 
-## Learn More
+## License
 
-To learn more about Next.js, take a look at the following resources:
+GNU GPLv3
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+> GitHub [@ericdvb](https://github.com/ericdvb) &nbsp;&middot;&nbsp;
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
