@@ -29,12 +29,10 @@ An alternate interface for browsing [Trade Coffee](https://drinktrade.com)
   </a>
 </p>
 
-<p align="center">
-  <a href="#key-features">Key Features</a> •
-  <a href="#how-to-use">How To Use</a> •
-  <a href="#built-with">Built With</a> •
-  <a href="#license">License</a>
-</p>
+- [Key Features](#key-features)
+- [How to Use](#how-to-use)
+- [Built With](#built-with)
+- [License](#license)
 
 ## Key Features
 
@@ -73,4 +71,3 @@ GNU GPLv3
 ---
 
 > GitHub [@ericdvb](https://github.com/ericdvb) &nbsp;&middot;&nbsp;
-
