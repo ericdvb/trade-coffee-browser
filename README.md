@@ -7,7 +7,7 @@
   <br>
 </h1>
 
-<h4 align="center">An alternate browsing interface for coffees from [drinktrade.com](https://drinktrade.com)</h4>
+<h4 align="center">An alternate browsing interface for coffees from <a href="https://drinktrade.com">Trade Coffee</a></h4>
 
 <p align="center">
   <a href="#">
