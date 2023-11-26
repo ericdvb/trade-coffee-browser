@@ -7,7 +7,7 @@
   <br>
 </h1>
 
-<h4 align="center">An alternate browsing interface for coffees from drinktrade.com<a href="http://electron.atom.io" target="_blank">Electron</a>.</h4>
+<h4 align="center">An alternate browsing interface for coffees from [drinktrade.com](https://drinktrade.com)</h4>
 
 <p align="center">
   <a href="#">
