@@ -36,8 +36,6 @@ An alternate interface for browsing [Trade Coffee](https://drinktrade.com)
   <a href="#license">License</a>
 </p>
 
-![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.gif)
-
 ## Key Features
 
 * Efficient Table View
@@ -66,7 +64,7 @@ This package is built with the following technologies:
 - [Node.js](https://nodejs.org/)
 - [Material React Table](https://www.material-react-table.com/)
 - [TailwindCSS](https://tailwindcss.com/)
-- [HeadlessUI](http://codemirror.net/](https://headlessui.com/)
+- [HeadlessUI](https://headlessui.com/)
 
 ## License
 
