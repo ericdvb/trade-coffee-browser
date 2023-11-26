@@ -1,29 +1,24 @@
 <h1 align="center">
   <br>
-  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.png" alt="Markdownify" width="200"></a>
+  <a href="http://www.amitmerchant.com/electron-markdownify">
+  </a>
   <br>
   Trade Coffee Browser
   <br>
 </h1>
 
-<h4 align="center">A minimal Markdown Editor desktop app built on top of <a href="http://electron.atom.io" target="_blank">Electron</a>.</h4>
+<h4 align="center">An alternate browsing interface for coffees from drinktrade.com<a href="http://electron.atom.io" target="_blank">Electron</a>.</h4>
 
 <p align="center">
-  <a href="https://codesandbox.io">
-    <img src="https://codesandbox.io/static/img/banner.png?v=2" height="300px">
+  <a href="#">
   </a>
 </p>
 
 &nbsp;
-An instantly ready, full-featured online IDE for web development on any device
-with a browser. Enabling you to start new projects quickly and prototype
-rapidly. With CodeSandbox, you can create web apps, experiment with code, test
-ideas, and share creations easily.
 
 An alternate interface for browsing [Trade Coffee](https://drinktrade.com)
 
 ## Table of Contents
-
 
 <p align="center" class="badges">
   <a href="https://badge.fury.io/js/electron-markdownify">
@@ -36,10 +31,8 @@ An alternate interface for browsing [Trade Coffee](https://drinktrade.com)
 
 <p align="center">
   <a href="#key-features">Key Features</a> •
-  <a href="#getting-started">Getting Started</a> •
-  <a href="#download">Download</a> •
-  <a href="#credits">Credits</a> •
-  <a href="#related">Related</a> •
+  <a href="#how-to-use">How To Use</a> •
+  <a href="#built-with">Built With</a> •
   <a href="#license">License</a>
 </p>
 
