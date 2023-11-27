@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+import colors from 'tailwindcss/colors'
+
 module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
@@ -6,10 +8,10 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontFamily: {}
-    },
-    colors: {
-      'maroon': 'rgb(123, 0, 22)',
+      fontFamily: {},
+      colors: {
+        'maroon': 'rgb(123, 0, 22)',
+      }
     },
   },
   plugins: [],
