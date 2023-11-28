@@ -1,8 +1,9 @@
 "use client";
-import { useState } from "react";
+import { useState, memo } from "react";
 import { geologica } from "@/app/styles/font";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, XMarkIcon, UserCircleIcon } from "@heroicons/react/24/outline";
+import LoginModal from "@/app/components/Modal/LoginModal";
 
 const navigation = [
     { name: 'About', href: '/about' },
@@ -10,10 +11,16 @@ const navigation = [
     { name: 'Dashboard', href: '/dashboard' },
 ]
 
+const NavContainer = memo(function () { return <></>})
+NavContainer.displayName = 'NavContainer'
+
 export default function Navigation() {
   const [open, setOpen] = useState(false);
+  const [loginModalOpen, setLoginModalOpen] = useState(false);
+
   return (
-    <Disclosure as={({children}) => <nav className="relative shadow-sm z-50">{children}</nav> }>
+    <Disclosure as={({children}: { children?: React.ReactNode|React.ReactNode[]}): React.ReactElement =>
+      <nav className="relative shadow-sm z-10">{children}</nav> }>
       {() => {
         return (
           <>
@@ -38,7 +45,7 @@ export default function Navigation() {
                   <div className="flex flex-shrink-0 items-center h-16 w-16 text-6xl text-center sm:justify-center">
                     <a href="/" className={`${geologica.className} font-semibold cursor-pointer text-maroon`}>C</a>
                   </div>
-                  <div className="hidden sm:ml-6 sm:block">
+                  <div className="flex-1 hidden sm:ml-6 sm:block">
                     <div className="flex space-x-4 items-center h-full">
                       {navigation.map((item) => (
                         <a
@@ -51,6 +58,12 @@ export default function Navigation() {
                         </a>
                       ))}
                     </div>
+                  </div>
+                  <div className="flex-1 hidden sm:mr-6 sm:flex sm:items-center sm:justify-end">
+                    <button onClick={() => setLoginModalOpen(true)}>
+                      <UserCircleIcon className="block h-8 w-8" aria-hidden="true" />
+                    </button>
+                    <LoginModal isOpen={loginModalOpen} setIsOpen={setLoginModalOpen}></LoginModal>
                   </div>
                 </div>
               </div>
