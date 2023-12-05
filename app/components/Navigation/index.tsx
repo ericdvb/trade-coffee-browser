@@ -4,16 +4,16 @@ import Link from "next/link"
 import { geologica } from "@/app/styles/font";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon, UserCircleIcon } from "@heroicons/react/24/outline";
-import LoginModal from "@/app/components/Modal/LoginModal";
+import AuthModal from "@/app/components/Modal/AuthModal";
+
+// TODO: Create a NavContainer component that houses the top level disclosure. Use children to render the contents.
+// See whether we can make the children server components (so that the login/signup form can be a server component.
 
 const navigation = [
     { name: 'About', href: '/about' },
     { name: 'Coffees', href: '/coffees' },
     { name: 'Dashboard', href: '/dashboard' },
 ]
-
-const NavContainer = memo(function () { return <></>})
-NavContainer.displayName = 'NavContainer'
 
 export default function Navigation() {
   const [open, setOpen] = useState(false);
@@ -64,7 +64,10 @@ export default function Navigation() {
                     <button onClick={() => setLoginModalOpen(true)}>
                       <UserCircleIcon className="block h-8 w-8" aria-hidden="true" />
                     </button>
-                    <LoginModal isOpen={loginModalOpen} setIsOpen={setLoginModalOpen}></LoginModal>
+                    {/*
+                      *<LoginModal isOpen={loginModalOpen} setIsOpen={setLoginModalOpen}></LoginModal>
+                      */}
+                    <AuthModal isOpen={loginModalOpen} setIsOpen={setLoginModalOpen} />
                   </div>
                 </div>
               </div>
