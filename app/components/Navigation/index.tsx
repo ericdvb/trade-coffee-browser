@@ -1,5 +1,6 @@
 "use client";
 import { useState, memo } from "react";
+import Link from "next/link"
 import { geologica } from "@/app/styles/font";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon, UserCircleIcon } from "@heroicons/react/24/outline";
@@ -19,7 +20,7 @@ export default function Navigation() {
   const [loginModalOpen, setLoginModalOpen] = useState(false);
 
   return (
-    <Disclosure as={({children}: { children?: React.ReactNode|React.ReactNode[]}): React.ReactElement =>
+    <Disclosure as={({children}: { children?: React.ReactNode }): React.ReactElement =>
       <nav className="relative shadow-sm z-10">{children}</nav> }>
       {() => {
         return (
@@ -43,19 +44,19 @@ export default function Navigation() {
                 </div>
                 <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                   <div className="flex flex-shrink-0 items-center h-16 w-16 text-6xl text-center sm:justify-center">
-                    <a href="/" className={`${geologica.className} font-semibold cursor-pointer text-maroon`}>C</a>
+                    <Link href="/" className={`${geologica.className} font-semibold cursor-pointer text-maroon`}>C</Link>
                   </div>
                   <div className="flex-1 hidden sm:ml-6 sm:block">
                     <div className="flex space-x-4 items-center h-full">
                       {navigation.map((item) => (
-                        <a
+                        <Link
                           key={item.name}
                           href={item.href}
                           className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                           aria-current={item.current ? 'page' : undefined}
                         >
                           {item.name}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   </div>
