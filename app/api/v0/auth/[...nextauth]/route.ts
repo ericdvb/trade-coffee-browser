@@ -1,7 +1,8 @@
 import NextAuth, {User} from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { prisma } from "@/lib/prisma";
-import bcrypt from "bcrypt"
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 interface Credentials extends Record<"username" | "password", string> {};
 
@@ -20,11 +21,22 @@ const handler = NextAuth({
         if (!username || !password) { return false as any }
 
         // check if a matching user exists, if not, send a rejection
-        const userRecord = await prisma.user.findUnique({ where: { username: username } })
+        const userRecord = await prisma.user.findUnique({ where: { username: username } });
         // check if the username and excrypted password match
         if (userRecord) {
           if (await bcrypt.compare(password, userRecord.hashed_password)) {
-            returnObj = userRecord
+
+            // create a jwt
+            const token = jwt.sign({
+              userId: userRecord.id
+            }, {
+              algorithm: 'rsa256',
+              expiresIn: 86400,
+            });
+
+            returnObj = {
+              Authorization: token
+            }
           }
         }
       }

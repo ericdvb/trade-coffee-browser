@@ -5,9 +5,9 @@ import { prisma } from "@/lib/prisma";
 import { coffeeToDB, roasterToDB } from "@/app/utils/coffeeDecorator";
 import FetchError from "@/app/utils/fetchError";
 import requestBody from "./requestParams.json";
-//import coffees from "../../../../sampledataallcoffees.js";
 
 export async function GET() {
+  debugger;
   console.log("called the coffees route");
   const requestMethod = "POST";
   const headers = {
